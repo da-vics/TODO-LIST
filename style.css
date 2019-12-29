@@ -5,9 +5,9 @@
 }
 
 body,html{
-  font-family: sans-serif;
-background: powderblue;
+  background: powderblue;
 }
+
 
 /*header*/
 header{
@@ -19,7 +19,7 @@ header .container{
   padding: 3rem;
   margin-top: 2rem;
   margin-bottom: 0;
-  background: plum;
+  background: crimson;
   text-align: center;
   position: relative;
 }
@@ -83,7 +83,7 @@ main .no-task{
   text-align: center;
   font-size: 2rem;
   color: white;
-  background: peachpuff;
+  background: #333;
   padding: 2rem;
   margin:auto;
   font-weight: bold;
