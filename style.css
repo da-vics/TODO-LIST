@@ -1,0 +1,143 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,html{
+  font-family: sans-serif;
+
+  background: #f4f4f4;
+}
+
+/*header*/
+header{
+  width: 100%;
+}
+header .container{
+  max-width: 650px;
+  margin: auto;
+  padding: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  background: plum;
+  text-align: center;
+  position: relative;
+}
+
+header .container h1{
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+}
+
+header .container input{
+  padding: 0.5rem;
+  width: 80%;
+  background: rgba(0,0,0,0.2);
+  outline: none;
+  border: none;
+  transition: background 0.8s;
+}
+
+header .container input:hover{
+  background: #fff;
+}
+
+#btn
+{
+  padding:0.5rem;
+  margin-left: -5px;
+  background: skyblue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.8s;
+  outline: none;
+}
+
+#btn:hover{
+  opacity: 1;
+}
+
+header .container .count_cont{
+  position: absolute;
+  margin-top: 1rem;
+  left: 0;
+  opacity: 0.7;
+  padding-left: 1rem;
+}
+
+header .container .count_cont .task_count{
+color: darkslateblue;
+font-weight: bold;
+font-size: 1.2rem;
+font-style: italic;
+}
+
+/*main*/
+main .no-task{
+  max-width: 650px;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  background: peachpuff;
+  padding: 2rem;
+  margin:auto;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+main .todo-list{
+list-style: none;
+max-width: 650px;
+padding: 0.5rem;
+margin:auto;
+margin-top: 0.5rem;
+margin-bottom: 3rem;
+background: rgba(0,0,0,0.2);
+box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+main .todo-list .todo{
+display: flex;
+justify-content: space-between;
+align-content: center;
+height: 100%;
+background: palegoldenrod;
+padding: 1rem;
+margin: 1rem;
+}
+
+main .todo-list .todo p{
+color: purple;
+font-weight: bold;
+align-self: center;
+}
+
+main .todo-list .todo .buttons .up,
+main .todo-list .todo .buttons .down,
+main .todo-list .todo .buttons .remove{
+padding: 0.75rem;
+cursor: pointer;
+color: white;
+font-weight: bold;
+border: none;
+opacity: 0.6;
+outline: none;
+}
+
+main .todo-list .todo .buttons .up{background: teal; }
+main .todo-list .todo .buttons .down{background: skyblue; }
+main .todo-list .todo .buttons .remove{background: tomato; }
+
+main .todo-list .todo .buttons .up:hover,
+main .todo-list .todo .buttons .down:hover,
+main .todo-list .todo .buttons .remove:hover{
+  opacity: 1;
+}
