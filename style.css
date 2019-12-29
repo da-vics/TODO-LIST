@@ -1,142 +1,107 @@
 *{
-  box-sizing: border-box;
-  margin: 0;
   padding: 0;
-}
+  margin: 0;
+  box-sizing: border-box;
 
-body,html{
-  background: powderblue;
 }
-
-
-/*header*/
-header{
-  width: 100%;
+ul{
+  list-style: none;
 }
-header .container{
-  max-width: 650px;
-  margin: auto;
-  padding: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 0;
-  background: crimson;
-  text-align: center;
-  position: relative;
-}
-
-header .container h1{
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 3rem;
-  text-align: center;
-  color: #fff;
-}
-
-header .container input{
-  padding: 0.5rem;
-  width: 80%;
-  background: rgba(0,0,0,0.2);
-  outline: none;
-  border: none;
-  transition: background 0.8s;
-}
-
-header .container input:hover{
-  background: #fff;
-}
-
-#btn
-{
-  padding:0.5rem;
-  margin-left: -5px;
-  background: skyblue;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.8s;
-  outline: none;
-}
-
-#btn:hover{
-  opacity: 1;
-}
-
-header .container .count_cont{
-  position: absolute;
-  margin-top: 1rem;
-  left: 0;
-  opacity: 0.7;
-  padding-left: 1rem;
-}
-
-header .container .count_cont .task_count{
-color: darkslateblue;
-font-weight: bold;
-font-size: 1.2rem;
-font-style: italic;
-}
-
-/*main*/
-main .no-task{
-  max-width: 650px;
-  text-align: center;
-  font-size: 2rem;
-  color: white;
-  background: #333;
-  padding: 2rem;
-  margin:auto;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+.todo-container{
+  margin: 20px auto;
+  max-width: 600px;
   box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
-main .todo-list{
-list-style: none;
-max-width: 650px;
-padding: 0.5rem;
-margin:auto;
-margin-top: 0.5rem;
-margin-bottom: 3rem;
-background: rgba(0,0,0,0.2);
-box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+#todo-header{
+  background: crimson;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
 }
 
-main .todo-list .todo{
-display: flex;
-justify-content: space-between;
-align-content: center;
-height: 100%;
-background: palegoldenrod;
-padding: 1rem;
-margin: 1rem;
+#todo-header h1{
+  padding: 20px;
+  font-size: 3rem;
 }
 
-main .todo-list .todo p{
-color: purple;
-font-weight: bold;
-align-self: center;
+#todo-header input{
+  width: 80%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,0.2);
+  transition: background-color 0.4s;
 }
 
-main .todo-list .todo .buttons .up,
-main .todo-list .todo .buttons .down,
-main .todo-list .todo .buttons .remove{
-padding: 0.75rem;
-cursor: pointer;
-color: white;
-font-weight: bold;
-border: none;
-opacity: 0.6;
-outline: none;
+#todo-header input:hover,
+#todo-header input:focus{
+background-color: #fff;
+}
+#todo-header button{
+  padding: 15px;
+  border: none;
+  outline: none;
+  margin-left: -5px;
+  background-color: blueviolet;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  margin: 2px;
 }
 
-main .todo-list .todo .buttons .up{background: teal; }
-main .todo-list .todo .buttons .down{background: skyblue; }
-main .todo-list .todo .buttons .remove{background: tomato; }
+#todo-header button:hover{
+  background: teal;
+  cursor: pointer;
+}
 
-main .todo-list .todo .buttons .up:hover,
-main .todo-list .todo .buttons .down:hover,
-main .todo-list .todo .buttons .remove:hover{
+#todo-main .no-todos{
+  padding: 20px;
+  text-align: center;
+  font-size: 3rem;
+  background: #ececec;
+}
+
+#todo-maodo:nth-child(2n+1){
+  background-cin .todo:nth-child(2n){
+  background-color: beige;
+}
+
+#todo-main .tolor: #ececec;
+}
+
+#todo-main .todo{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+#todo-main .todo button{
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.4s;
+}
+
+#todo-main .todo button:hover{
   opacity: 1;
+}
+
+#todo-main .todo .up{
+  background: teal;
+  color: #fff;
+}
+main .todo .down{
+  background: tomato;
+  color: #fff;
+}
+
+#todo-
+#todo-main .todo .remove{
+  background: brown ;
+  color: #fff;
 }
