@@ -1,232 +1,172 @@
-/*Global Variables*/
-var para_class = "no-task";
-var para_text = "No Task To Display";
-var div_class  = "container";
-var lists_class = "todo-list";
-var list = "todo";
-var list_div = "buttons";
-var list_btn_up = "up";
-var list_btn_down = "down";
-var list_btn_remove = "remove";
 
-var task_num =0;
-
-/*Utility Functions*/
-
-function createELement(type,className){
-
+function createElement(type,className){
   var element = document.createElement(type);
-
-  if(className)
-  {
+  if(className){
     element.classList.add(className);
   }
   return element;
 }
 
-function createParagraph()
-{
-  var p =  createELement("p",para_class);
-  p.innerText = para_text;
+
+function createParagraph(text, className){
+
+  var p = createElement("p",className);
+  p.innerText = text;
+
   return p;
 }
 
-function createDiv()
-{
-  var div =  createELement("div",div_class);
-  return div;
+///createParagraph("No TODOS to display", "no-todos");
+
+function createUl(className){
+  var ul = createElement("ul",className);
+  return  ul;
 }
 
-function createUl()
-{
-  var ul =  createELement("ul",lists_class);
-  return ul;
+function createDiv(className){
+  var div  = createElement("div",className);
+return div;
 }
 
-function createLi(text)
+function createbutton(text, className, dataPurpose){
+  var btn  = createElement("button",className);
+  btn.innerText = text;
+  btn.setAttribute("data-purpose", dataPurpose);
+return btn;
+}
+
+function createTODO(text)
 {
-  var li =  createELement("li",list);
-  var p = document.createElement("p");
-  p.innerText = text;
+  var li = createElement("li", "todo");
+  var p = createParagraph(text);
   li.append(p);
+  var buttoncontainer = createDiv("buttons");
+  var upbtn = createbutton("Up", "up","up");
+  var downbtn = createbutton("DOWN", "down","down");
+  var removebtn = createbutton("Remove", "remove","remove");
+
+  buttoncontainer.append(upbtn);
+  buttoncontainer.append(downbtn);
+  buttoncontainer.append(removebtn);
+
+  li.append(buttoncontainer);
+
   return li;
-
 }
 
-function createLi_Div()
-{
-  var div =  createELement("div",list_div);
 
-  var btn_up =  createELement("button",list_btn_up);
-  btn_up.innerText = "UP";
-  btn_up.setAttribute("data-purpose","up");
+var todoinput = document.getElementById("todo-input");
 
-  var btn_down =  createELement("button",list_btn_down);
-  btn_down.innerText = "Down";
-  btn_down.setAttribute("data-purpose","down");
+var add_btn = document.getElementById("add-todo");
 
-  var btn_remove =  createELement("button",list_btn_remove);
-  btn_remove.innerText = "Remove";
-  btn_remove.setAttribute("data-purpose","remove");
-
-  div.append(btn_up);
-  div.append(btn_down);
-  div.append(btn_remove);
-  return div;
-}
-
-var add_task = document.getElementById("btn");
-var main = document.getElementById("main");
-var task_input = document.getElementById("task_input");
-var header_cont = document.querySelector("header .container");
+var maincontainer = document.getElementById("todo-main");
 
 
-add_task.addEventListener("click",function()
-{
+add_btn.addEventListener("click",function(){
 
-if(task_input.value.length>0)
-{
-
-var check_list = document.querySelector(".todo-list");
-  if(!check_list)
-  {
-    ++task_num;
-    var task_count = createELement("p","task_count");
-    task_count.innerText = "Task: " + task_num;
-    var header_cont_div = createELement("div","count_cont");
-    header_cont_div.append(task_count);
-    header_cont.append(header_cont_div);    
-
-  var p = document.querySelector("p.no-task");
-  main.removeChild(p);
-
-  var ul = createUl();
-  var li = createLi(task_input.value);
-  var div = createLi_Div();
-  li.append(div);
-  ul.append(li);
-  main.append(ul);
-  }
-
-  else{
-
-    ++task_num;
-    var task_count = document.querySelector("header .container .count_cont .task_count");
-    task_count.innerText = "Task: " + task_num;
-    
-    var ul = document.querySelector(".todo-list");
-    var li = createLi(task_input.value);
-    var div = createLi_Div();
-    li.append(div);
-    ul.append(li);
-  }
-
-  task_input.value ="";
-}///
-
-});
-
-
-task_input.addEventListener("keyup",function(e)
-{
-
-if(task_input.value.length>0)
-{
-if(e.keyCode === 13)
-{
-
-var check_list = document.querySelector(".todo-list");
-  if(!check_list)
-  {
-    ++task_num;
-    var task_count = createELement("p","task_count");
-    task_count.innerText = "Task: " + task_num;
-    var header_cont_div = createELement("div","count_cont");
-    header_cont_div.append(task_count);
-    header_cont.append(header_cont_div); 
-
-  var p = document.querySelector("p.no-task");
-  main.removeChild(p);
-
-  var ul = createUl();
-  var li = createLi(task_input.value);
-  var div = createLi_Div();
-  li.append(div);  
-  ul.append(li);
-  main.append(ul);
-  }
-
-  else
-  {
-    ++task_num;
-    var task_count = document.querySelector("header .container .count_cont .task_count");
-    task_count.innerText = "Task: " + task_num;
-
-    var ul = document.querySelector(".todo-list");
-    var li = createLi(task_input.value);
-    var div = createLi_Div();
-    li.append(div);
-    ul.append(li);
-  }
-
- task_input.value ="";
-}///keycode
- 
-} /// length
-});
-9
-main.addEventListener("click",function(e){
-
-  if(e.target.nodeName == "BUTTON")
-  {
-    var button = e.target;
-    var typeButoon = button.getAttribute("data-purpose");  /// ||  if(button.className == "remove")
-    var li = button.parentElement.parentElement;
-    var ul = li.parentElement;
-
-    switch(typeButoon)
+  if(todoinput.value.length>0)
     {
+      todo.style.opacity = 0;
+      setTimeout(function(){
+        todo.style.opacity=1;
+      },100);
+
+  var todo = createTODO(todoinput.value);
+
+  if(!maincontainer.querySelector(".todo"))
+  {
+    var noTodosp = document.querySelector("p.no-todos");
+    maincontainer.removeChild(noTodosp);
+    
+  var ul = createUl("todo-list");
+  ul.append(todo);
+  maincontainer.append(ul);
+  }
+ 
+  else{
+    var ul = document.querySelector(".todo-list");
+    ul.append(todo);
+  }
+
+  todoinput.value = "";
+    } ///
+
+})
+
+todoinput.addEventListener("keyup", function(e){
+
+    if(todoinput.value.length>0)
+    {
+       if(e.keyCode === 13){
+  var todo = createTODO(todoinput.value);
+
+  todo.style.opacity = 0;
+    setTimeout(function(){
+      todo.style.opacity=1;
+    },100);
+
+  if(!maincontainer.querySelector(".todo"))
+  {
+  
+
+    var noTodosp = document.querySelector("p.no-todos");
+    maincontainer.removeChild(noTodosp);
+  var ul = createUl("todo-list");
+  ul.append(todo);
+  maincontainer.append(ul);
+  }
+ 
+  else{
+    var ul = document.querySelector(".todo-list");
+    ul.append(todo);
+  }
+
+  todoinput.value = "";
+  } ///
+    } ///
+ 
+});
+
+
+maincontainer.addEventListener("click", function(e){
+
+  if(e.target.nodeName == "BUTTON"){
+   var button = e.target;
+   var typeButoon = button.getAttribute("data-purpose");
+
+   var li = button.parentElement.parentElement;
+   var ul = li.parentElement;
+
+   switch(typeButoon){
+
+    case "remove":
+      ul.removeChild(li);
+     if(ul.children.length ===0){
+        var p = createParagraph("No TODOs to display", "no-todos");
+        var ul = document.querySelector(".todo-list");
+        maincontainer.removeChild(ul);
+        maincontainer.append(p);
+      }
+      break;
 
       case "up":
-        var previous_element = li.previousElementSibling;
-        if(previous_element!==null)
-        {
-          console.log(previous_element);
-            ul.removeChild(li);
-            ul.insertBefore(li,previous_element);
+        var previousElement = li.previousElementSibling;
+        if(previousElement!==null){
+          ul.removeChild(li);
+          ul.insertBefore(li,previousElement);
         }
       break;
 
       case "down":
-        var next_element = li.nextElementSibling;
-        if(next_element!==null){
-          ul.removeChild(next_element);
-          ul.insertBefore(next_element,li);
-        }
-        break;
-
-        case "remove":
+        var nextElement  = li.nextElementSibling;
+        if(nextElement!==null){
           ul.removeChild(li);
-          --task_num;
-          var task_count = document.querySelector("header .container .count_cont .task_count");
-          task_count.innerText = "Task: " + task_num;
-          if(ul.children.length==0)
-          {
-              var p = document.createElement("p");
-              p.innerText = "No Task To Display";
-              p.classList.add("no-task");
-              main.removeChild(ul);
-              main.append(p);
+          ul.insertBefore(li,nextElement.nextElementSibling);
+        }
 
-              var task_count = document.querySelector("header .container .count_cont");
-              header_cont.removeChild(task_count);
-          }
-          break;
-
-    }
-
-  } /// if button
-
-
-
+   } ///
+  }
+  
 })
+
+
